@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Confirmation - Dental Practice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">Dental Practice</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="book-appointment.html">Book Appointment</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="confirmation">
+            <h1>Appointment Confirmed!</h1>
+            <p>Your appointment has been successfully scheduled for the following date and time:</p>
+            <div id="appointmentDetails"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Dental Practice. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Extract the URL parameters to get the appointment details
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        // Get the appointment details from the URL parameters
+        const name = urlParams.get('name');
+        const email = urlParams.get('email');
+        const phone = urlParams.get('phone');
+        const date = urlParams.get('date');
+        const time = urlParams.get('time');
+        const service = urlParams.get('service');
+
+        // Display the appointment details on the page
+        const appointmentDetailsDiv = document.getElementById('appointmentDetails');
+        appointmentDetailsDiv.innerHTML = `
+            <p>Name: ${name}</p>
+            <p>Email: ${email}</p>
+            <p>Phone: ${phone}</p>
+            <p>Date: ${date}</p>
+            <p>Time: ${time}</p>
+            <p>Service: ${service}</p>
+        `;
+    </script>
+</body>
+</html>

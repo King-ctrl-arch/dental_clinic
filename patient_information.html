@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Information - Dental Care</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <!-- Same header as in index.html -->
+    </header>
+
+    <main>
+        <section class="patients">
+            <h1>Registered Patients</h1>
+            <table id="patientsTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Medical History</th>
+                    </tr>
+                </thead>
+                <tbody id="patientsTableBody">
+                    <!-- Patient rows will be added here dynamically -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="appointments">
+            <h1>Appointments</h1>
+            <table id="appointmentsTable">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Service</th>
+                    </tr>
+                </thead>
+                <tbody id="appointmentsTableBody">
+                    <!-- Appointment rows will be added here dynamically -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Same footer as in index.html -->
+    </footer>
+
+    <script>
+        // Patient data
+        var patientsData = [
+            { name: "John Doe", email: "john@example.com", phone: "123-456-7890", history: "No significant medical history" },
+            // Add more patient data objects as needed
+        ];
+
+        // Appointment data
+        var appointmentsData = [
+            { patientName: "John Doe", date: "2024-06-01", time: "10:00 AM", service: "Cleaning" },
+            // Add more appointment data objects as needed
+        ];
+
+        // Function to populate patients table
+        function populatePatientsTable() {
+            var patientsTableBody = document.getElementById("patientsTableBody");
+            patientsData.forEach(function(patient) {
+                var row = "<tr>";
+                row += "<td>" + patient.name + "</td>";
+                row += "<td>" + patient.email + "</td>";
+                row += "<td>" + patient.phone + "</td>";
+                row += "<td>" + patient.history + "</td>";
+                row += "</tr>";
+                patientsTableBody.innerHTML += row;
+            });
+        }
+
+        // Function to populate appointments table
+        function populateAppointmentsTable() {
+            var appointmentsTableBody = document.getElementById("appointmentsTableBody");
+            appointmentsData.forEach(function(appointment) {
+                var row = "<tr>";
+                row += "<td>" + appointment.patientName + "</td>";
+                row += "<td>" + appointment.date + "</td>";
+                row += "<td>" + appointment.time + "</td>";
+                row += "<td>" + appointment.service + "</td>";
+                row += "</tr>";
+                appointmentsTableBody.innerHTML += row;
+            });
+        }
+
+        // Call functions to populate tables when the page loads
+        window.onload = function() {
+            populatePatientsTable();
+            populateAppointmentsTable();
+        };
+    </script>
+</body>
+</html>
